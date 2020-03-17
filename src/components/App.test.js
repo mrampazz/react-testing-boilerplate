@@ -7,6 +7,13 @@ import { shallow, configure, mount } from "enzyme";
 // ============= UTILS =============
 configure({ adapter: new Adapter() });
 
+let array = [
+  { text: "todo1" },
+  { text: "todo2" },
+  { text: "todo3" },
+  { text: "todo4" }
+];
+
 // ============= TESTS =============
 describe("<App /> component", () => {
   let component;
@@ -17,12 +24,7 @@ describe("<App /> component", () => {
   // ============= COMPONENT MUST RENDER CORRECTLY =============
   test("renders the todos", () => {
     component.setState({
-      todos: [
-        { text: "todo1" },
-        { text: "todo2" },
-        { text: "todo3" },
-        { text: "todo4" }
-      ]
+      todos: array
     });
 
     const listItems = component.find("li");
@@ -36,12 +38,7 @@ describe("<App /> component", () => {
   // ============= TEST THE EVENTS =============
   test("todo should be deleted when clicked", () => {
     component.setState({
-      todos: [
-        { text: "todo1" },
-        { text: "todo2" },
-        { text: "todo3" },
-        { text: "todo4" }
-      ]
+      todos: array
     });
     component.find('li[children="todo1"]').simulate('click');
     expect(component.find('li[children="todo1"]').exists()).toBeFalsy();
