@@ -1,6 +1,5 @@
 ## react-testing-boilerplate
 ### Cosa testare
-
 - _Component MUST render_
   - component must render without errors
 - _Test the output_
@@ -16,7 +15,7 @@
     - il test dovrebbe dirci che c'e' un problema
 
 ### Cosa non testare
-
+- _non fare snapshots_
 - _metodi lifecycle_
 
 ### Come testare
